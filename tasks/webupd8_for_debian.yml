@@ -1,5 +1,4 @@
 ---
-
 - name: Install WebUpd8 apt key
   apt_key: id=EEA14886 keyserver='keyserver.ubuntu.com' state=present
   register: webupd8key
