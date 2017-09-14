@@ -8,6 +8,7 @@
 
 - debug: msg="java_needs_oracle - {{ java_needs_oracle }}"
 - debug: msg="java_packages - {{ java_packages }}"
+- debug: msg="java_packages_to_remove - {{ java_packages_to_remove }}"
 
 - name: Install python-apt
   apt: pkg=python-apt
