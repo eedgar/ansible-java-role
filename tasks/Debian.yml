@@ -7,6 +7,7 @@
     java_needs_oracle: "{{ java_packages | join | search('oracle') }}"
 
 - debug: msg="java_needs_oracle - {{ java_needs_oracle }}"
+- debug: msg="java_packages - {{ java_packages }}"
 
 - name: Install python-apt
   apt: pkg=python-apt
