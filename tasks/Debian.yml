@@ -2,6 +2,12 @@
 
 - include_vars: Ubuntu.yml
 
+- name: set java_needs_oracle
+  set_fact:
+    java_needs_oracle: "{{ java_packages | join | search('oracle') }}"
+
+- debug: msg="java_needs_oracle - {{ java_needs_oracle }}"
+
 - name: Install python-apt
   apt: pkg=python-apt
 
@@ -10,12 +16,6 @@
 
 - include: webupd8_for_ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
-
-- name: set java_needs_oracle
-  set_fact:
-    java_needs_oracle: "{{ java_packages | join | search('oracle') }}"
-
-- debug: msg="java_needs_oracle - {{ java_needs_oracle }}"
 
 - name: Accept Oracle License
   debconf: name={{ item }} question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
