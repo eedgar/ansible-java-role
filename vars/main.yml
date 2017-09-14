@@ -1,4 +1,1 @@
 ---
-- name: set java_needs_oracle
-  set_fact:
-    java_needs_oracle: "{{ java_packages | join | search('oracle') }}"
